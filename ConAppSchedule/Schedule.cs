@@ -429,35 +429,35 @@ namespace ConAppSchedule
 
         public void ValidateSizeRows(List<string> rows)
         {
-            int count = 1;
             if (rows.Count > 2)
             {
-                while (count < rows.Count - 1)
+                int aux = 1;
+                while (aux < rows.Count - 1)
                 {
-                    ShareHour(rows[count], rows[count + 1]);
-                    count++;
+                    int aux1 = aux;
+                    while (aux1 < rows.Count - 1)
+                    {
+                        aux1++;
+                        ShareHour(rows[aux], rows[aux1]);
+                    }
+                    aux++;
                 }
             }
         }    
 
         public void ShareHour(string firstPerson, string secondPerson)
         {
-            if (shareHours != null)
-            {
-                bool existHours = ExistInShareHours(firstPerson, secondPerson);
-                if (existHours != true)
-                {
-                    AddRowHour(firstPerson, secondPerson);
-                }
-            }
-            else
+            bool existHours = ExistInShareHours(firstPerson, secondPerson);
+            if (existHours != true)
             {
                 AddRowHour(firstPerson, secondPerson);
             }
+            
         }
 
         public void AddRowHour(string firstPerson, string secondPerson)
         {
+            
             List<string> addRow = new List<string>();
             addRow.Add(firstPerson);
             addRow.Add(secondPerson);
@@ -471,10 +471,14 @@ namespace ConAppSchedule
             {
                 bool findFirst = false;
                 bool findSecond = false;
-                if (rows[0] == firstPerson || rows[1] == secondPerson)                
+                if (rows[0] == firstPerson || rows[1] == firstPerson)                
                     findFirst = true;
+                else
+                    findFirst = false;
                 if (rows[0] == secondPerson || rows[1] == secondPerson)                
-                    findSecond = true;                
+                    findSecond = true;
+                else
+                    findSecond = false;
                 if ((findFirst == true) && (findSecond == true))
                 {
                     rows[2] = (int.Parse(rows[2]) + 1).ToString();
