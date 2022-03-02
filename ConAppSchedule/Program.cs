@@ -22,9 +22,11 @@ namespace ConAppSchedule
                 {
                     schedule.SplitName(Line);
                 }
+                ReaderObject.Close();
             }
             schedule.ShowSchedule();
             schedule.ShowShareHours();
         }
+
     }
 }

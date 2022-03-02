@@ -489,5 +489,4 @@ namespace ConAppSchedule
             return false;           
         }      
     }
-
 }
