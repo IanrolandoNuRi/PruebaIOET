@@ -1,4 +1,4 @@
-# ACME COMPANY MARCELO ROMERO
+# ACME COMPANY GILBERTH NUÑEZ
 
 # Exercise
 The company ACME offers their employees the flexibility to work the hours they want. But due to some external circumstances they need to know what employees have been at the office within the same time frame
@@ -33,6 +33,7 @@ The **SplitWorkingDays** this function receives two parameters a string array an
 
 The **SplitHours** this function receives two parameters a string array and a string data, it goes through the string array separating the day from the hours worked and calls the IdentifySchedule function.
 
-
+The **ValidateTime** this function receives as parameter the start time, end time, start minutes and end minutes, returns true if the schedule is valid or returns false if there is an error in any parameter.
 
 # How to Run the Program.
+The program is written in C# language, as a console application.
